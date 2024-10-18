@@ -1,4 +1,4 @@
-package com.tacos.taco_cloud;
+package com.tacos.taco_cloud.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,5 +9,4 @@ public class HomeController {
     public String home() {
         return "home";
     }
-
 }
