@@ -14,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 import com.tacos.taco_cloud.*;
 import com.tacos.taco_cloud.Ingredient.Type;
 
-
 @Slf4j
 @Controller
 @RequestMapping("/design")
@@ -61,5 +60,12 @@ public class DesignTacoController {
                 .stream()
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
+    }
+
+    @PostMapping
+    public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder) {
+        tacoOrder.addTaco(taco);
+        log.info("Processing taco: {} ebaaal takooooo123", taco);
+        return "redirect:/orders/current";
     }
 }
