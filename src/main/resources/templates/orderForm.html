@@ -14,11 +14,11 @@
         <li th:each="taco : ${tacoOrder.tacos}">
           <span th:text="${taco.name}">taco name</span>
         </li>
-      </ul>
+      </ul>another
       <h3>Deliver my taco masterpieces to...</h3>
       <label for="deliveryName">Name: </label>
       <input type="text" th:field="*{deliveryName}" />
-      <br />
+      <br/>
       <label for="deliveryStreet">Street address: </label>
       <input type="text" th:field="*{deliveryStreet}" />
       <br />
