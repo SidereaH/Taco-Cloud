@@ -1,0 +1,12 @@
+
+.validationError {
+    color: red;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+.ingredient-row {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
