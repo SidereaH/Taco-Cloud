@@ -1,0 +1,19 @@
+spring:
+    application:
+        name: "taco-cloud"
+    thymeleaf:
+        cache: false
+    datasource:
+        url: jdbc:postgresql://127.0.0.1:5433/taco
+        username: "postgres"
+        password: "postgres"
+        driver-class-name: org.postgresql.Driver
+    sql:
+        init:
+            mode: always
+            schema-locations: "classpath:schema.sql"
+            data-locations: "classpath:data.sql"
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+
