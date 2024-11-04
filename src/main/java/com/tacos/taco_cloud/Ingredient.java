@@ -1,20 +1,18 @@
 package com.tacos.taco_cloud;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import org.springframework.data.domain.Persistable;
+import org.springframework.data.annotation.*;
 
 @Data
-@Entity
+@Document(collection = "ingredients")
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-
-public class Ingredient implements Persistable<String> {
+public class Ingredient {
     @Id
     private final String id;
     private final String name;
@@ -24,9 +22,4 @@ public class Ingredient implements Persistable<String> {
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
     }
 
-    @Override
-    public boolean isNew() {
-        return true;
-
-    }
 }
