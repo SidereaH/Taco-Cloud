@@ -12,6 +12,7 @@ import lombok.Data;
 import java.util.*;
 
 import jakarta.persistence.*;
+import com.tacos.taco_cloud.models.*;
 
 @Entity
 @Data
@@ -41,6 +42,8 @@ public class TacoOrder implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Taco> tacos = new ArrayList<>();
+    @ManyToOne
+    private User user;
 
     public void addTaco(Taco taco) {
         this.tacos.add(taco);

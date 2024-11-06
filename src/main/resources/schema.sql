@@ -5,18 +5,33 @@ ALTER TABLE IF EXISTS ingredient_ref
     DROP CONSTRAINT IF EXISTS fk_ingredient_ref_taco;
 ALTER TABLE IF EXISTS taco 
     DROP CONSTRAINT IF EXISTS fk_taco_order;
+ALTER TABLE IF EXISTS taco_order
+    DROP CONSTRAINT IF EXISTS fk_taco_user;
 
--- Drop tables in correct order (reverse dependency order)
+-- Drop tables in correct order
 DROP TABLE IF EXISTS ingredient_ref;
 DROP TABLE IF EXISTS taco;
 DROP TABLE IF EXISTS taco_order;
 DROP TABLE IF EXISTS ingredient;
+DROP TABLE IF EXISTS taco_user;
 
 -- Create tables in correct order
 CREATE TABLE IF NOT EXISTS ingredient (
     id VARCHAR(4) NOT NULL PRIMARY KEY,
     name VARCHAR(25) NOT NULL,
     type VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS taco_user (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(60) NOT NULL,
+    fullname VARCHAR(50) NOT NULL,
+    street VARCHAR(50) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    state VARCHAR(50) NOT NULL,
+    zip VARCHAR(50) NOT NULL,
+    phone_number VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS taco_order (
@@ -29,7 +44,8 @@ CREATE TABLE IF NOT EXISTS taco_order (
     cc_number VARCHAR(16) NOT NULL,
     cc_expiration VARCHAR(5) NOT NULL,
     cc_cvv VARCHAR(3) NOT NULL,
-    placed_at TIMESTAMP NOT NULL
+    placed_at TIMESTAMP NOT NULL,
+    user_id BIGINT REFERENCES taco_user(id)  -- Добавлена колонка для внешнего ключа
 );
 
 CREATE TABLE IF NOT EXISTS taco (
@@ -41,7 +57,7 @@ CREATE TABLE IF NOT EXISTS taco (
 );
 
 CREATE TABLE IF NOT EXISTS ingredient_ref (
-    ingredient VARCHAR(4) NOT NULL,
+    ingredient VARCHAR(4) NOT NULL,  
     taco BIGINT NOT NULL,
     taco_key BIGINT NOT NULL,
     PRIMARY KEY (ingredient, taco)
