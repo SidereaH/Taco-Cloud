@@ -15,33 +15,37 @@ import com.tacos.taco_cloud.models.*;
 
 @Configuration
 public class SecurityConfig {
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
 
-    }
+  }
 
-    @Bean
-    public UserDetailsService userDetailsService(UserRepository userRepo) {
-        return username -> {
-            User user = userRepo.findByUsername(username);
-            if (user != null)
-                return user;
-            throw new UsernameNotFoundException("User ‘" + username + "’ not found");
-        };
-    }
+  @Bean
+  public UserDetailsService userDetailsService(UserRepository userRepo) {
+    return username -> {
+      User user = userRepo.findByUsername(username);
+      if (user != null)
+        return user;
+      throw new UsernameNotFoundException("User ‘" + username + "’ not found");
+    };
+  }
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/design", "/orders")
-                        .access(new WebExpressionAuthorizationManager("hasRole('USER')"))
-                        .requestMatchers("/", "/**")
-                        .access(new WebExpressionAuthorizationManager("permitAll()")))
-                .formLogin(form -> form
-                        .loginPage("/login"))
-                .build();
-    }
+  @Bean
+  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    return http
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/design", "/orders")
+            .access(new WebExpressionAuthorizationManager("hasRole('USER')"))
+            .requestMatchers("/", "/**")
+            .access(new WebExpressionAuthorizationManager("permitAll()")))
+        .formLogin(form -> form
+            .loginPage("/login"))
+        // .oauth2Login(auth -> auth
+        // .loginPage("/login"))
+        .logout(log -> log
+            .logoutSuccessUrl("/"))
+        .build();
+  }
 
 }

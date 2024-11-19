@@ -12,9 +12,20 @@ spring:
         init:
             mode: always
             schema-locations: "classpath:schema.sql"
-            data-locations: "classpath:data.sql"
+
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
         show-sql: true
         hibernate:
             ddl-auto: create-drop
+  # security:
+    #     oauth2:
+      #       client:
+            #    registration:
+             #       <oauth2 or openid provider name>:
+  #                      clientId: <client id>
+   #                     clientSecret: <client secret>
+    #                    scope: <comma-separated list of requested scopes>
+taco:
+    orders:
+       pageSize: 10

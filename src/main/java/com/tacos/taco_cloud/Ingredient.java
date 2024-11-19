@@ -15,18 +15,18 @@ import org.springframework.data.domain.Persistable;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 
 public class Ingredient implements Persistable<String> {
-    @Id
-    private final String id;
-    private final String name;
-    private final Type type;
+  @Id
+  private final String id;
+  private final String name;
+  private final Type type;
 
-    public enum Type {
-        WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
-    }
+  public enum Type {
+    WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
+  }
 
-    @Override
-    public boolean isNew() {
-        return true;
+  @Override
+  public boolean isNew() {
+    return true;
 
-    }
+  }
 }
