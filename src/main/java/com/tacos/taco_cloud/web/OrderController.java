@@ -1,9 +1,9 @@
 package com.tacos.taco_cloud.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.tacos.taco_cloud.TacoOrder;
 import com.tacos.taco_cloud.data.OrderRepository;
 import com.tacos.taco_cloud.models.User;
-
 import org.springframework.validation.Errors;
 import lombok.extern.slf4j.Slf4j;
 import jakarta.validation.*;
@@ -65,7 +64,7 @@ public class OrderController {
   @GetMapping
   public String ordersForUser(
       @AuthenticationPrincipal User user, Model model) {
-    org.springframework.data.domain.Pageable pageable = PageRequest.of(0, props.getPageSize());
+    Pageable pageable = PageRequest.of(0, props.getPageSize());
     model.addAttribute("orders",
         orderRepository.findByUserOrderByPlacedAtDesc(user, pageable));
     return "orderList";
