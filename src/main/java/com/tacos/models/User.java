@@ -1,4 +1,4 @@
-package com.tacos.taco_cloud.models;
+package com.tacos.models;
 
 import java.util.Arrays;
 import java.util.Collection;

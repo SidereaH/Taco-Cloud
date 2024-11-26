@@ -1,4 +1,4 @@
-package com.tacos.taco_cloud;
+package com.tacos;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

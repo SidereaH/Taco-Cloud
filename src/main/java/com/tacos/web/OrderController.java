@@ -1,5 +1,6 @@
-package com.tacos.taco_cloud.web;
+package com.tacos.web;
 
+import com.tacos.data.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.data.domain.PageRequest;
@@ -12,9 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import com.tacos.taco_cloud.TacoOrder;
-import com.tacos.taco_cloud.data.OrderRepository;
-import com.tacos.taco_cloud.models.User;
+import com.tacos.TacoOrder;
+import com.tacos.models.User;
 import org.springframework.validation.Errors;
 import lombok.extern.slf4j.Slf4j;
 import jakarta.validation.*;

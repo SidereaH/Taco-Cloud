@@ -1,5 +1,6 @@
-package com.tacos.taco_cloud.security;
+package com.tacos.security;
 
+import com.tacos.models.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,8 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.expression.WebExpressionAuthorizationManager;
 
-import com.tacos.taco_cloud.data.UserRepository;
-import com.tacos.taco_cloud.models.*;
+import com.tacos.data.UserRepository;
 
 @Configuration
 public class SecurityConfig {

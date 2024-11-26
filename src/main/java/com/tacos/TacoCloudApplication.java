@@ -1,5 +1,7 @@
-package com.tacos.taco_cloud;
+package com.tacos;
 
+import com.tacos.data.IngredientRepository;
+import com.tacos.data.TacoRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -7,10 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.tacos.taco_cloud.data.IngredientRepository;
-import com.tacos.taco_cloud.data.TacoRepository;
-import com.tacos.taco_cloud.data.UserRepository;
-import com.tacos.taco_cloud.Ingredient.Type;
+import com.tacos.data.UserRepository;
+import com.tacos.Ingredient.Type;
 import java.util.Arrays;
 
 import org.springframework.boot.CommandLineRunner;

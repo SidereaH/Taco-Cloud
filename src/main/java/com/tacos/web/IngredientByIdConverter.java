@@ -1,10 +1,10 @@
-package com.tacos.taco_cloud.web;
+package com.tacos.web;
 
 
+import com.tacos.data.IngredientRepository;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
-import com.tacos.taco_cloud.Ingredient;
-import com.tacos.taco_cloud.data.IngredientRepository;
+import com.tacos.Ingredient;
 
 @Component
 public class IngredientByIdConverter implements Converter<String, Ingredient> {

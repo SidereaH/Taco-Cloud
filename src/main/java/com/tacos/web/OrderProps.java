@@ -1,4 +1,4 @@
-package com.tacos.taco_cloud.web;
+package com.tacos.web;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

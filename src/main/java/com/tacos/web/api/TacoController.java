@@ -1,5 +1,8 @@
-package com.tacos.taco_cloud.web.api;
+package com.tacos.web.api;
 
+import com.tacos.Taco;
+import com.tacos.TacoOrder;
+import com.tacos.data.OrderRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -15,10 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tacos.taco_cloud.Taco;
-import com.tacos.taco_cloud.TacoOrder;
-import com.tacos.taco_cloud.data.OrderRepository;
-import com.tacos.taco_cloud.data.TacoRepository;
+import com.tacos.data.TacoRepository;
 
 @RestController
 @RequestMapping(path = "/api/tacos", produces = "application/json")

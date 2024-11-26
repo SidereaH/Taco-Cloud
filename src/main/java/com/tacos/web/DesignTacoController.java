@@ -1,8 +1,9 @@
-package com.tacos.taco_cloud.web;
+package com.tacos.web;
 
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import com.tacos.data.IngredientRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -12,11 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.tacos.taco_cloud.Ingredient;
-import com.tacos.taco_cloud.Ingredient.Type;
-import com.tacos.taco_cloud.Taco;
-import com.tacos.taco_cloud.TacoOrder;
-import com.tacos.taco_cloud.data.IngredientRepository;
+import com.tacos.Ingredient;
+import com.tacos.Ingredient.Type;
+import com.tacos.Taco;
+import com.tacos.TacoOrder;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

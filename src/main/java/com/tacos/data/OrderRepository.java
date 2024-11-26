@@ -1,9 +1,9 @@
-package com.tacos.taco_cloud.data;
+package com.tacos.data;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
-import com.tacos.taco_cloud.TacoOrder;
-import com.tacos.taco_cloud.models.User;
+import com.tacos.TacoOrder;
+import com.tacos.models.User;
 
 import java.util.*;
 

@@ -1,11 +1,10 @@
-package com.tacos.taco_cloud;
+package com.tacos;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import com.tacos.models.User;
 import org.junit.jupiter.api.Test;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import com.tacos.taco_cloud.data.*;
-import com.tacos.taco_cloud.models.*;
+
 
 class UserTest {
 

@@ -1,7 +1,8 @@
-package com.tacos.taco_cloud;
+package com.tacos;
 
 import java.util.List;
 
+import com.tacos.models.User;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import jakarta.validation.constraints.*;
 
@@ -12,7 +13,7 @@ import lombok.Data;
 import java.util.*;
 
 import jakarta.persistence.*;
-import com.tacos.taco_cloud.models.*;
+
 
 @Entity
 @Data

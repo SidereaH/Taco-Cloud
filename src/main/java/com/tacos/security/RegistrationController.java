@@ -1,11 +1,11 @@
-package com.tacos.taco_cloud.security;
+package com.tacos.security;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.tacos.taco_cloud.data.UserRepository;
+import com.tacos.data.UserRepository;
 
 @Controller
 @RequestMapping("/register")

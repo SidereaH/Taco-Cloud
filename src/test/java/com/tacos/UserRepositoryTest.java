@@ -1,15 +1,15 @@
-package com.tacos.taco_cloud;
+package com.tacos;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.tacos.data.UserRepository;
+import com.tacos.models.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import com.tacos.taco_cloud.models.*;
-import com.tacos.taco_cloud.data.*;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
