@@ -16,29 +16,30 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path="/api/ingredients", produces="application/json")
-@CrossOrigin(origins="http://localhost:8080")
+@RequestMapping(path = "/api/ingredients", produces = "application/json")
+@CrossOrigin(origins = "http://localhost:8080")
 public class IngredientController {
-    private IngredientRepository repo;
+  private IngredientRepository repo;
 
-    @Autowired
-    public IngredientController(IngredientRepository repo) {
-        this.repo = repo;
-    }
-    @GetMapping
-    public Iterable<Ingredient> allIngredients() {
-        return repo.findAll();
-    }
-    @PreAuthorize("#{hasRole('ADMIN')}")
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Ingredient saveIngredient(@RequestBody Ingredient ingredient) {
-        return repo.save(ingredient);
-    }
-    @PreAuthorize("#{hasRole('ADMIN')}")
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteIngredient(@PathVariable("id") String ingredientId) {
-        repo.deleteById(ingredientId);
-    }
+  @Autowired
+  public IngredientController(IngredientRepository repo) {
+    this.repo = repo;
+  }
+
+  @GetMapping
+  public Iterable<Ingredient> allIngredients() {
+    return repo.findAll();
+  }
+
+  @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
+  public Ingredient saveIngredient(@RequestBody Ingredient ingredient) {
+    return repo.save(ingredient);
+  }
+
+  @DeleteMapping("/{id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void deleteIngredient(@PathVariable("id") String ingredientId) {
+    repo.deleteById(ingredientId);
+  }
 }

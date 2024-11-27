@@ -9,10 +9,11 @@ ALTER TABLE IF EXISTS taco_order
     DROP CONSTRAINT IF EXISTS fk_taco_user;
 
 -- Drop tables in correct order
-DROP TABLE IF EXISTS ingredient_ref;
-DROP TABLE IF EXISTS taco;
-DROP TABLE IF EXISTS taco_order;
-DROP TABLE IF EXISTS ingredient;
+DROP TABLE IF EXISTS ingredient_ref ;
+DROP TABLE IF EXISTS ingredient CASCADE;
+DROP TABLE IF EXISTS taco CASCADE;
+DROP TABLE IF EXISTS taco_order CASCADE;
+
 DROP TABLE IF EXISTS taco_user;
 
 -- Create tables in correct order

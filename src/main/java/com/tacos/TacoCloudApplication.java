@@ -16,8 +16,8 @@ import java.util.Arrays;
 import org.springframework.boot.CommandLineRunner;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "com.tacos.taco_cloud.data")
-@EntityScan("com.tacos.taco_cloud")
+// @EnableJpaRepositories(basePackages = "com.tacos.taco_cloud.data")
+// @EntityScan("com.tacos.taco_cloud")
 public class TacoCloudApplication {
   public static void main(String[] args) {
     SpringApplication.run(TacoCloudApplication.class, args);
